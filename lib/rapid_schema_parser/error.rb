@@ -8,5 +8,13 @@ module RapidSchemaParser
 
     include HasFields
 
+    def code
+      @raw['code']
+    end
+
+    def http_status
+      @raw['http_status']
+    end
+
   end
 end
