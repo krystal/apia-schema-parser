@@ -13,5 +13,15 @@ module RapidSchemaParser
       end
     end
 
+    def all_potential_errors
+      errors = self.respond_to?(:potential_errors) ? self.potential_errors : []
+      self.arguments.values.each do |arg|
+        next unless arg.type.is_a?(ArgumentSet)
+
+        errors |= arg.type.all_potential_errors
+      end
+      errors
+    end
+
   end
 end

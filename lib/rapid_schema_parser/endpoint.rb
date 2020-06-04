@@ -29,5 +29,9 @@ module RapidSchemaParser
       @raw['http_method']
     end
 
+    def all_potential_errors
+      (self.potential_errors + self.argument_set.all_potential_errors).uniq
+    end
+
   end
 end
