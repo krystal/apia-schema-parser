@@ -1,0 +1,19 @@
+PATH
+  remote: .
+  specs:
+    rapid-schema-parser (0.0.0.dev)
+      json
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    json (2.3.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  rapid-schema-parser!
+
+BUNDLED WITH
+   2.1.4
