@@ -5,6 +5,7 @@ module RapidSchemaParser
 
     attr_reader :controller
     attr_reader :endpoint
+    attr_reader :name
 
     def initialize(controller, name, endpoint)
       @controller = controller
