@@ -3,7 +3,7 @@
 require 'rapid_schema_parser/simple_object'
 require 'rapid_schema_parser/authenticator'
 require 'rapid_schema_parser/controller'
-require 'rapid_schema_parser/api_controller'
+require 'rapid_schema_parser/route_set'
 
 module RapidSchemaParser
   class API < SimpleObject
@@ -12,10 +12,8 @@ module RapidSchemaParser
       @authenticator ||= schema.objects[@raw['authenticator']]
     end
 
-    def controllers
-      @controllers ||= @raw['controllers'].each_with_object({}) do |controller, hash|
-        hash[controller['name']] = APIController.new(schema, controller['name'], schema.objects[controller['controller']])
-      end
+    def route_set
+      @route_set ||= RouteSet.new(schema, @raw['route_set'])
     end
 
   end

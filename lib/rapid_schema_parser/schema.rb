@@ -45,6 +45,10 @@ module RapidSchemaParser
       @raw['namespace']
     end
 
+    def url
+      "https://#{host}#{namespace}"
+    end
+
     def api
       objects[@raw['api']]
     end
