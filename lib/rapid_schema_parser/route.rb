@@ -21,7 +21,18 @@ module RapidSchemaParser
     end
 
     def group
-      @route_set.groups[@raw['group']]
+      parts = @raw['group'].split('.')
+      source = @route_set.groups
+      parts.size.times do |i|
+        part = parts[0, i + 1].join('.')
+
+        source = source[part]
+        return nil if source.nil?
+        return source if i == parts.size - 1
+
+        source = source.groups
+      end
+      nil
     end
 
     def controller
