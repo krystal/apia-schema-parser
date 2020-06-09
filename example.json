@@ -8,7 +8,7 @@
       "type": "api",
       "value": {
         "id": "CoreAPI/Base",
-        "name": "Core API",
+        "name": "Katapult Core API",
         "description": null,
         "authenticator": "CoreAPI/Authenticator",
         "route_set": {
@@ -63,20 +63,6 @@
               "group": "virtual_machines"
             },
             {
-              "path": "organizations/:organization/virtual_machines/build",
-              "request_method": "POST",
-              "controller": "CoreAPI/Controllers/VirtualMachines",
-              "endpoint": "CoreAPI/Controllers/VirtualMachines/BuildEndpoint",
-              "group": "virtual_machines"
-            },
-            {
-              "path": "organizations/:organization/virtual_machines/build_from_spec",
-              "request_method": "POST",
-              "controller": "CoreAPI/Controllers/VirtualMachines",
-              "endpoint": "CoreAPI/Controllers/VirtualMachines/BuildFromSpecEndpoint",
-              "group": "virtual_machines"
-            },
-            {
               "path": "virtual_machines/:virtual_machine",
               "request_method": "GET",
               "controller": "CoreAPI/Controllers/VirtualMachines",
@@ -92,45 +78,143 @@
             },
             {
               "path": "virtual_machines/:virtual_machine/package",
-              "request_method": "POST",
+              "request_method": "PATCH",
               "controller": "CoreAPI/Controllers/VirtualMachines",
               "endpoint": "CoreAPI/Controllers/VirtualMachines/ChangePackageEndpoint",
               "group": "virtual_machines"
+            },
+            {
+              "path": "organizations/:organization/virtual_machines/build",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/VirtualMachines",
+              "endpoint": "CoreAPI/Controllers/VirtualMachines/BuildEndpoint",
+              "group": "virtual_machines.build"
+            },
+            {
+              "path": "organizations/:organization/virtual_machines/build_from_spec",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/VirtualMachines",
+              "endpoint": "CoreAPI/Controllers/VirtualMachines/BuildFromSpecEndpoint",
+              "group": "virtual_machines.build"
             },
             {
               "path": "virtual_machines/:virtual_machine/start",
               "request_method": "POST",
               "controller": "CoreAPI/Controllers/VirtualMachines",
               "endpoint": "CoreAPI/Controllers/VirtualMachines/StartEndpoint",
-              "group": "virtual_machines"
+              "group": "virtual_machines.power"
             },
             {
               "path": "virtual_machines/:virtual_machine/stop",
               "request_method": "POST",
               "controller": "CoreAPI/Controllers/VirtualMachines",
               "endpoint": "CoreAPI/Controllers/VirtualMachines/StopEndpoint",
-              "group": "virtual_machines"
+              "group": "virtual_machines.power"
             },
             {
               "path": "virtual_machines/:virtual_machine/shutdown",
               "request_method": "POST",
               "controller": "CoreAPI/Controllers/VirtualMachines",
               "endpoint": "CoreAPI/Controllers/VirtualMachines/ShutdownEndpoint",
-              "group": "virtual_machines"
+              "group": "virtual_machines.power"
             },
             {
               "path": "virtual_machines/:virtual_machine/reset",
               "request_method": "POST",
               "controller": "CoreAPI/Controllers/VirtualMachines",
               "endpoint": "CoreAPI/Controllers/VirtualMachines/ResetEndpoint",
-              "group": "virtual_machines"
+              "group": "virtual_machines.power"
             },
             {
               "path": "virtual_machines/:virtual_machine/console_sessions",
               "request_method": "POST",
               "controller": "CoreAPI/Controllers/VirtualMachines",
               "endpoint": "CoreAPI/Controllers/VirtualMachines/CreateConsoleSessionEndpoint",
-              "group": "virtual_machines"
+              "group": "virtual_machines.console"
+            },
+            {
+              "path": "organizations/:organization/dns/zones",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/DNSZones",
+              "endpoint": "CoreAPI/Controllers/DNSZones/ListEndpoint",
+              "group": "dns.zones"
+            },
+            {
+              "path": "organizations/:organization/dns/zones",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/DNSZones",
+              "endpoint": "CoreAPI/Controllers/DNSZones/CreateEndpoint",
+              "group": "dns.zones"
+            },
+            {
+              "path": "dns/zones/:dns_zone",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/DNSZones",
+              "endpoint": "CoreAPI/Controllers/DNSZones/InfoEndpoint",
+              "group": "dns.zones"
+            },
+            {
+              "path": "dns/zones/:dns_zone",
+              "request_method": "DELETE",
+              "controller": "CoreAPI/Controllers/DNSZones",
+              "endpoint": "CoreAPI/Controllers/DNSZones/DestroyEndpoint",
+              "group": "dns.zones"
+            },
+            {
+              "path": "dns/zones/:dns_zone/verification_details",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/DNSZones",
+              "endpoint": "CoreAPI/Controllers/DNSZones/VerificationDetailsEndpoint",
+              "group": "dns.zones"
+            },
+            {
+              "path": "dns/zones/:dns_zone/verify",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/DNSZones",
+              "endpoint": "CoreAPI/Controllers/DNSZones/VerifyEndpoint",
+              "group": "dns.zones"
+            },
+            {
+              "path": "dns/zones/:dns_zone/update_ttl",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/DNSZones",
+              "endpoint": "CoreAPI/Controllers/DNSZones/UpdateTtlEndpoint",
+              "group": "dns.zones"
+            },
+            {
+              "path": "dns/zones/:dns_zone/records",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/DNSRecords",
+              "endpoint": "CoreAPI/Controllers/DNSRecords/ListEndpoint",
+              "group": "dns.records"
+            },
+            {
+              "path": "dns/zones/:dns_zone/records",
+              "request_method": "POST",
+              "controller": "CoreAPI/Controllers/DNSRecords",
+              "endpoint": "CoreAPI/Controllers/DNSRecords/CreateEndpoint",
+              "group": "dns.records"
+            },
+            {
+              "path": "dns/records/:dns_record",
+              "request_method": "GET",
+              "controller": "CoreAPI/Controllers/DNSRecords",
+              "endpoint": "CoreAPI/Controllers/DNSRecords/InfoEndpoint",
+              "group": "dns.records"
+            },
+            {
+              "path": "dns/records/:dns_record",
+              "request_method": "PATCH",
+              "controller": "CoreAPI/Controllers/DNSRecords",
+              "endpoint": "CoreAPI/Controllers/DNSRecords/UpdateEndpoint",
+              "group": "dns.records"
+            },
+            {
+              "path": "dns/records/:dns_record",
+              "request_method": "DELETE",
+              "controller": "CoreAPI/Controllers/DNSRecords",
+              "endpoint": "CoreAPI/Controllers/DNSRecords/DestroyEndpoint",
+              "group": "dns.records"
             }
           ],
           "groups": [
@@ -157,7 +241,45 @@
               "id": "virtual_machines",
               "name": "Virtual machines",
               "description": null,
-              "groups": []
+              "groups": [
+                {
+                  "id": "virtual_machines.build",
+                  "name": "Build",
+                  "description": "Endpoints used for building or creating new virtual machines",
+                  "groups": []
+                },
+                {
+                  "id": "virtual_machines.power",
+                  "name": "Power Functions",
+                  "description": "Endpoints for performing power functions (i.e. start, stop etc...) on a virtual machine",
+                  "groups": []
+                },
+                {
+                  "id": "virtual_machines.console",
+                  "name": "Console",
+                  "description": "Endpoints for managing console access to a virtual machine",
+                  "groups": []
+                }
+              ]
+            },
+            {
+              "id": "dns",
+              "name": "DNS/Domains",
+              "description": null,
+              "groups": [
+                {
+                  "id": "dns.zones",
+                  "name": "DNS Zones",
+                  "description": "Endpoints for managing DNS zones/domains",
+                  "groups": []
+                },
+                {
+                  "id": "dns.records",
+                  "name": "DNS Records",
+                  "description": "Endpoints for managing DNS records beloning to existing DNS zones/domains",
+                  "groups": []
+                }
+              ]
             }
           ]
         }
@@ -262,7 +384,11 @@
             "description": null,
             "type": "CoreAPI/Objects/DataCenter",
             "null": false,
-            "array": true
+            "array": true,
+            "spec": {
+              "all": false,
+              "spec": "id,name,permalink,country[id,name]"
+            }
           }
         ],
         "potential_errors": []
@@ -290,7 +416,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/DataCenter/NameField",
@@ -298,7 +428,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/DataCenter/PermalinkField",
@@ -306,7 +440,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/DataCenter/CountryField",
@@ -314,7 +452,11 @@
             "description": null,
             "type": "CoreAPI/Objects/Country",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -332,7 +474,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Country/NameField",
@@ -340,7 +486,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Country/IsoCode2Field",
@@ -348,7 +498,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Country/IsoCode3Field",
@@ -356,7 +510,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Country/TimeZoneField",
@@ -364,7 +522,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Country/EuField",
@@ -372,7 +534,11 @@
             "description": null,
             "type": "Rapid/Scalars/Boolean",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -407,7 +573,11 @@
             "description": null,
             "type": "CoreAPI/Objects/DataCenter",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,permalink,country[id,name]"
+            }
           }
         ],
         "potential_errors": []
@@ -515,7 +685,11 @@
             "description": null,
             "type": "CoreAPI/Objects/Organization",
             "null": false,
-            "array": true
+            "array": true,
+            "spec": {
+              "all": false,
+              "spec": "id, name, sub_domain, personal, created_at, suspended"
+            }
           }
         ],
         "potential_errors": []
@@ -543,7 +717,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Organization/NameField",
@@ -551,7 +729,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Organization/SubDomainField",
@@ -559,7 +741,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Organization/InfrastructureDomainField",
@@ -567,7 +753,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Organization/PersonalField",
@@ -575,7 +765,11 @@
             "description": null,
             "type": "Rapid/Scalars/Boolean",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Organization/CreatedAtField",
@@ -583,7 +777,11 @@
             "description": null,
             "type": "Rapid/Scalars/UnixTime",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Organization/SuspendedField",
@@ -591,7 +789,11 @@
             "description": null,
             "type": "Rapid/Scalars/Boolean",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Organization/ManagedField",
@@ -599,7 +801,11 @@
             "description": null,
             "type": "Rapid/Scalars/Boolean",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Organization/BillingNameField",
@@ -607,7 +813,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Organization/Address1Field",
@@ -615,7 +825,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Organization/Address2Field",
@@ -623,7 +837,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Organization/Address3Field",
@@ -631,7 +849,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Organization/Address4Field",
@@ -639,7 +861,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Organization/PostcodeField",
@@ -647,7 +873,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Organization/VatNumberField",
@@ -655,7 +885,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Organization/CurrencyField",
@@ -663,7 +897,11 @@
             "description": null,
             "type": "CoreAPI/Objects/Currency",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Organization/CountryField",
@@ -671,7 +909,11 @@
             "description": null,
             "type": "CoreAPI/Objects/Country",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Organization/CountryStateField",
@@ -679,7 +921,11 @@
             "description": null,
             "type": "CoreAPI/Objects/CountryState",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -705,7 +951,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Currency/NameField",
@@ -713,7 +963,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Currency/IsoCodeField",
@@ -721,7 +975,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Currency/SymbolField",
@@ -729,7 +987,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Currency/DefaultField",
@@ -737,7 +999,11 @@
             "description": null,
             "type": "Rapid/Scalars/Boolean",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -755,7 +1021,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/CountryState/NameField",
@@ -763,7 +1033,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/CountryState/CodeField",
@@ -771,7 +1045,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/CountryState/CountryField",
@@ -779,7 +1057,11 @@
             "description": null,
             "type": "CoreAPI/Objects/Country",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -814,7 +1096,11 @@
             "description": null,
             "type": "CoreAPI/Objects/Organization",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ],
         "potential_errors": []
@@ -936,7 +1222,11 @@
             "description": null,
             "type": "CoreAPI/Objects/Organization",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ],
         "potential_errors": [
@@ -1005,7 +1295,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": true
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -1111,7 +1405,11 @@
             "description": null,
             "type": "Rapid/PaginationObject",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Controllers/VirtualMachines/ListEndpoint/VirtualMachinesField",
@@ -1119,7 +1417,11 @@
             "description": null,
             "type": "CoreAPI/Objects/VirtualMachine",
             "null": false,
-            "array": true
+            "array": true,
+            "spec": {
+              "all": false,
+              "spec": "id,name,fqdn,hostname,created_at,zone[id,name,permalink,data_center[id,name,permalink]],ip_addresses[address],package[name]"
+            }
           }
         ],
         "potential_errors": []
@@ -1172,7 +1474,11 @@
             "description": "The current page",
             "type": "Rapid/Scalars/Integer",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "Rapid/PaginationObject/TotalPagesField",
@@ -1180,7 +1486,11 @@
             "description": "The total number of pages",
             "type": "Rapid/Scalars/Integer",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "Rapid/PaginationObject/TotalField",
@@ -1188,7 +1498,11 @@
             "description": "The total number of items across all pages",
             "type": "Rapid/Scalars/Integer",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "Rapid/PaginationObject/PerPageField",
@@ -1196,7 +1510,11 @@
             "description": "The number of items per page",
             "type": "Rapid/Scalars/Integer",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "Rapid/PaginationObject/LargeSetField",
@@ -1204,7 +1522,11 @@
             "description": "Is this a large set and therefore the total number of records cannot be returned?",
             "type": "Rapid/Scalars/Boolean",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -1222,7 +1544,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachine/NameField",
@@ -1230,7 +1556,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachine/HostnameField",
@@ -1238,7 +1568,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachine/FqdnField",
@@ -1246,7 +1580,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachine/CreatedAtField",
@@ -1254,7 +1592,11 @@
             "description": null,
             "type": "Rapid/Scalars/UnixTime",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachine/InitialRootPasswordField",
@@ -1262,7 +1604,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachine/StateField",
@@ -1270,7 +1616,11 @@
             "description": null,
             "type": "CoreAPI/Objects/VirtualMachineStateEnum",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachine/ZoneField",
@@ -1278,7 +1628,11 @@
             "description": null,
             "type": "CoreAPI/Objects/Zone",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachine/OrganizationField",
@@ -1286,7 +1640,11 @@
             "description": null,
             "type": "CoreAPI/Objects/Organization",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachine/GroupField",
@@ -1294,7 +1652,11 @@
             "description": null,
             "type": "CoreAPI/Objects/VirtualMachineGroup",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachine/PackageField",
@@ -1302,7 +1664,11 @@
             "description": null,
             "type": "CoreAPI/Objects/VirtualMachinePackage",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachine/AttachedIsoField",
@@ -1310,7 +1676,11 @@
             "description": null,
             "type": "CoreAPI/Objects/ISO",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachine/TagsField",
@@ -1318,7 +1688,11 @@
             "description": null,
             "type": "CoreAPI/Objects/Tag",
             "null": false,
-            "array": true
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachine/IpAddressesField",
@@ -1326,7 +1700,11 @@
             "description": null,
             "type": "CoreAPI/Objects/IPAddress",
             "null": false,
-            "array": true
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -1390,7 +1768,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Zone/NameField",
@@ -1398,7 +1780,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Zone/PermalinkField",
@@ -1406,7 +1792,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Zone/DataCenterField",
@@ -1414,7 +1804,11 @@
             "description": null,
             "type": "CoreAPI/Objects/DataCenter",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -1432,7 +1826,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachineGroup/NameField",
@@ -1440,7 +1838,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachineGroup/SegregateField",
@@ -1448,7 +1850,11 @@
             "description": null,
             "type": "Rapid/Scalars/Boolean",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachineGroup/CreatedAtField",
@@ -1456,7 +1862,11 @@
             "description": null,
             "type": "Rapid/Scalars/UnixTime",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -1474,7 +1884,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachinePackage/NameField",
@@ -1482,7 +1896,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachinePackage/PermalinkField",
@@ -1490,7 +1908,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachinePackage/CpuCoresField",
@@ -1498,7 +1920,11 @@
             "description": null,
             "type": "Rapid/Scalars/Integer",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachinePackage/Ipv4AddressesField",
@@ -1506,7 +1932,11 @@
             "description": null,
             "type": "Rapid/Scalars/Integer",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachinePackage/MemoryInGbField",
@@ -1514,7 +1944,11 @@
             "description": null,
             "type": "Rapid/Scalars/Integer",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachinePackage/StorageInGbField",
@@ -1522,7 +1956,11 @@
             "description": null,
             "type": "Rapid/Scalars/Integer",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachinePackage/PrivacyField",
@@ -1530,7 +1968,11 @@
             "description": null,
             "type": "CoreAPI/Objects/PrivacyTypesEnum",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachinePackage/IconField",
@@ -1538,7 +1980,11 @@
             "description": null,
             "type": "CoreAPI/Objects/Attachment",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -1574,7 +2020,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Attachment/FileNameField",
@@ -1582,7 +2032,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Attachment/FileTypeField",
@@ -1590,7 +2044,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Attachment/FileSizeField",
@@ -1598,7 +2056,11 @@
             "description": null,
             "type": "Rapid/Scalars/Integer",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Attachment/DigestField",
@@ -1606,7 +2068,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Attachment/TokenField",
@@ -1614,7 +2080,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -1632,7 +2102,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/ISO/NameField",
@@ -1640,7 +2114,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/ISO/OperatingSystemField",
@@ -1648,7 +2126,11 @@
             "description": null,
             "type": "CoreAPI/Objects/OperatingSystem",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -1666,7 +2148,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/OperatingSystem/NameField",
@@ -1674,7 +2160,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/OperatingSystem/BadgeField",
@@ -1682,7 +2172,11 @@
             "description": null,
             "type": "CoreAPI/Objects/Attachment",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -1700,7 +2194,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Tag/NameField",
@@ -1708,7 +2206,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Tag/ColorField",
@@ -1716,7 +2218,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Tag/CreatedAtField",
@@ -1724,7 +2230,11 @@
             "description": null,
             "type": "Rapid/Scalars/UnixTime",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -1742,7 +2252,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/IPAddress/AddressField",
@@ -1750,7 +2264,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/IPAddress/ReverseDnsField",
@@ -1758,7 +2276,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/IPAddress/VipField",
@@ -1766,7 +2288,11 @@
             "description": null,
             "type": "Rapid/Scalars/Boolean",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/IPAddress/AddressWithMaskField",
@@ -1774,7 +2300,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -1809,7 +2339,11 @@
             "description": null,
             "type": "CoreAPI/Objects/VirtualMachine",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ],
         "potential_errors": []
@@ -1971,7 +2505,11 @@
             "description": null,
             "type": "CoreAPI/Objects/Task",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,status"
+            }
           },
           {
             "id": "CoreAPI/Controllers/VirtualMachines/BuildEndpoint/BuildField",
@@ -1979,7 +2517,11 @@
             "description": null,
             "type": "CoreAPI/Objects/VirtualMachineBuild",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,state"
+            }
           },
           {
             "id": "CoreAPI/Controllers/VirtualMachines/BuildEndpoint/HostnameField",
@@ -1987,7 +2529,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ],
         "potential_errors": [
@@ -2270,7 +2816,11 @@
             "description": "Additional information regarding the reason why permission was denied",
             "type": "Rapid/Scalars/String",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -2299,7 +2849,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Task/NameField",
@@ -2307,7 +2861,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Task/StatusField",
@@ -2315,7 +2873,11 @@
             "description": null,
             "type": "CoreAPI/Objects/TaskStatusEnum",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Task/CreatedAtField",
@@ -2323,7 +2885,11 @@
             "description": null,
             "type": "Rapid/Scalars/UnixTime",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Task/StartedAtField",
@@ -2331,7 +2897,11 @@
             "description": null,
             "type": "Rapid/Scalars/UnixTime",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Task/FinishedAtField",
@@ -2339,7 +2909,11 @@
             "description": null,
             "type": "Rapid/Scalars/UnixTime",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/Task/ProgressField",
@@ -2347,7 +2921,11 @@
             "description": null,
             "type": "Rapid/Scalars/Integer",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -2391,7 +2969,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachineBuild/SpecXmlField",
@@ -2399,7 +2981,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachineBuild/StateField",
@@ -2407,7 +2993,11 @@
             "description": null,
             "type": "CoreAPI/Objects/VirtualMachineBuildStateEnum",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachineBuild/VirtualMachineField",
@@ -2415,7 +3005,11 @@
             "description": null,
             "type": "CoreAPI/Objects/VirtualMachine",
             "null": true,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/VirtualMachineBuild/CreatedAtField",
@@ -2423,7 +3017,11 @@
             "description": null,
             "type": "Rapid/Scalars/UnixTime",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -2496,7 +3094,11 @@
             "description": null,
             "type": "CoreAPI/Objects/Task",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,status"
+            }
           },
           {
             "id": "CoreAPI/Controllers/VirtualMachines/BuildFromSpecEndpoint/BuildField",
@@ -2504,7 +3106,11 @@
             "description": null,
             "type": "CoreAPI/Objects/VirtualMachineBuild",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,state"
+            }
           },
           {
             "id": "CoreAPI/Controllers/VirtualMachines/BuildFromSpecEndpoint/HostnameField",
@@ -2512,7 +3118,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ],
         "potential_errors": [
@@ -2589,7 +3199,11 @@
             "description": null,
             "type": "CoreAPI/Objects/Task",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,status"
+            }
           }
         ],
         "potential_errors": [
@@ -2631,7 +3245,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -2666,7 +3284,11 @@
             "description": null,
             "type": "CoreAPI/Objects/Task",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,status"
+            }
           }
         ],
         "potential_errors": [
@@ -2723,7 +3345,11 @@
             "description": null,
             "type": "CoreAPI/Objects/Task",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,status"
+            }
           }
         ],
         "potential_errors": [
@@ -2780,7 +3406,11 @@
             "description": null,
             "type": "CoreAPI/Objects/Task",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,name,status"
+            }
           }
         ],
         "potential_errors": [
@@ -2837,7 +3467,11 @@
             "description": null,
             "type": "CoreAPI/Objects/ConsoleSession",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": false,
+              "spec": "id,url,expires_at,virtual_machine[id,hostname,fqdn,name,state]"
+            }
           }
         ],
         "potential_errors": [
@@ -2880,7 +3514,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -2898,7 +3536,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/ConsoleSession/UrlField",
@@ -2906,7 +3548,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/ConsoleSession/ExpiresAtField",
@@ -2914,7 +3560,11 @@
             "description": null,
             "type": "Rapid/Scalars/UnixTime",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/ConsoleSession/VirtualMachineField",
@@ -2922,7 +3572,11 @@
             "description": null,
             "type": "CoreAPI/Objects/VirtualMachine",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -2957,7 +3611,11 @@
             "description": null,
             "type": "CoreAPI/Objects/TrashObject",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ],
         "potential_errors": ["CoreAPI/Errors/PermissionDenied"]
@@ -2994,7 +3652,11 @@
             "description": null,
             "type": "Rapid/Scalars/String",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           },
           {
             "id": "CoreAPI/Objects/TrashObject/KeepUntilField",
@@ -3002,7 +3664,11 @@
             "description": null,
             "type": "Rapid/Scalars/UnixTime",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ]
       }
@@ -3045,7 +3711,11 @@
             "description": null,
             "type": "CoreAPI/Objects/Task",
             "null": false,
-            "array": false
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
           }
         ],
         "potential_errors": [
@@ -3073,6 +3743,1779 @@
             "name": "virtual_machine_package",
             "description": null,
             "type": "CoreAPI/ArgumentSets/VirtualMachinePackageLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones",
+        "name": "DNS Zones",
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "CoreAPI/Controllers/DNSZones/ListEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/Controllers/DNSZones/InfoEndpoint"
+          },
+          {
+            "name": "create",
+            "endpoint": "CoreAPI/Controllers/DNSZones/CreateEndpoint"
+          },
+          {
+            "name": "verify",
+            "endpoint": "CoreAPI/Controllers/DNSZones/VerifyEndpoint"
+          },
+          {
+            "name": "verification_details",
+            "endpoint": "CoreAPI/Controllers/DNSZones/VerificationDetailsEndpoint"
+          },
+          {
+            "name": "update_ttl",
+            "endpoint": "CoreAPI/Controllers/DNSZones/UpdateTtlEndpoint"
+          },
+          {
+            "name": "destroy",
+            "endpoint": "CoreAPI/Controllers/DNSZones/DestroyEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/ListEndpoint",
+        "name": "List DNS zones",
+        "description": "Returns a list of all DNS zones for a given organization",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSZones/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "organization",
+              "description": "The organization to return DNS zones for",
+              "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "1"
+            },
+            {
+              "name": "per_page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "20"
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSZones/ListEndpoint/PaginationField",
+            "name": "pagination",
+            "description": null,
+            "type": "Rapid/PaginationObject",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Controllers/DNSZones/ListEndpoint/DnsZonesField",
+            "name": "dns_zones",
+            "description": "The DNS zones for the provided organization",
+            "type": "CoreAPI/Objects/DNSZone",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "organization",
+            "description": "The organization to return DNS zones for",
+            "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "1"
+          },
+          {
+            "name": "per_page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "20"
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSZone",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSZone/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSZone/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSZone/TtlField",
+            "name": "ttl",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSZone/VerifiedField",
+            "name": "verified",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSZone/InfrastructureZoneField",
+            "name": "infrastructure_zone",
+            "description": null,
+            "type": "Rapid/Scalars/Boolean",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/InfoEndpoint",
+        "name": "Get DNS zone",
+        "description": "Return information about a DNS zone",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSZones/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_zone",
+              "description": "The DNS zone to return information for",
+              "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSZones/InfoEndpoint/DnsZoneField",
+            "name": "dns_zone",
+            "description": "The DNS zone object",
+            "type": "CoreAPI/Objects/DNSZone",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_zone",
+            "description": "The DNS zone to return information for",
+            "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DNSZoneLookup",
+        "name": "DNS Zone Lookup",
+        "description": "Provides for DNS zones to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/DNSZoneLookup/DNSZoneNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DNSZoneLookup/DNSZoneNotFound",
+        "name": null,
+        "description": "No DNS zone was found matching any of the criteria provided in the arguments",
+        "code": "dns_zone_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/CreateEndpoint",
+        "name": "Create DNS zone",
+        "description": "Create a new DNS zone within an existing organization",
+        "http_status": 201,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSZones/CreateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "organization",
+              "description": "The organization to create the new DNS zone inside of",
+              "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "details",
+              "description": "The details for the new DNS zone",
+              "type": "CoreAPI/ArgumentSets/DNSZoneArguments",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSZones/CreateEndpoint/DnsZoneField",
+            "name": "dns_zone",
+            "description": "The new DNS zone that has been created",
+            "type": "CoreAPI/Objects/DNSZone",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Errors/PermissionDenied"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/CreateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "organization",
+            "description": "The organization to create the new DNS zone inside of",
+            "type": "CoreAPI/ArgumentSets/OrganizationLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "details",
+            "description": "The details for the new DNS zone",
+            "type": "CoreAPI/ArgumentSets/DNSZoneArguments",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DNSZoneArguments",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "ttl",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/VerifyEndpoint",
+        "name": "Verify DNS zone",
+        "description": "Attempt to verify a DNS zone",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSZones/VerifyEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_zone",
+              "description": "The DNS zone to attempt to verify",
+              "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSZones/VerifyEndpoint/DnsZoneField",
+            "name": "dns_zone",
+            "description": "The DNS zone that has been verified",
+            "type": "CoreAPI/Objects/DNSZone",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Controllers/DNSZones/VerifyEndpoint/DNSZoneNotVerified",
+          "CoreAPI/Errors/PermissionDenied"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/VerifyEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_zone",
+            "description": "The DNS zone to attempt to verify",
+            "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/VerifyEndpoint/DNSZoneNotVerified",
+        "name": null,
+        "description": "The DNS zone could not be verified, please check the verification details and try again",
+        "code": "dns_zone_not_verified",
+        "http_status": 422,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/VerificationDetailsEndpoint",
+        "name": "Verification details",
+        "description": "Settings required before a DNS zone can be verified",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSZones/VerificationDetailsEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_zone",
+              "description": "The DNS zone to get verification details for",
+              "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSZones/VerificationDetailsEndpoint/TxtRecordField",
+            "name": "txt_record",
+            "description": "The TXT record that can be added to a DNS zone's existing DNS details",
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Controllers/DNSZones/VerificationDetailsEndpoint/NameserversField",
+            "name": "nameservers",
+            "description": "The nameservers that a domain should be configured with",
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Controllers/DNSZones/VerificationDetailsEndpoint/DNSZoneAlreadyVerified",
+          "CoreAPI/Errors/PermissionDenied"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/VerificationDetailsEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_zone",
+            "description": "The DNS zone to get verification details for",
+            "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/VerificationDetailsEndpoint/DNSZoneAlreadyVerified",
+        "name": null,
+        "description": "This DNS zone is already verified, and does not require any verification details",
+        "code": "dns_zone_already_verified",
+        "http_status": 422,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/UpdateTtlEndpoint",
+        "name": "Update TTL",
+        "description": "Update a DNS zone's TTL value",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSZones/UpdateTtlEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_zone",
+              "description": "The DNS zone to update the TTL for",
+              "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "ttl",
+              "description": "The new TTL value for the DNS zone",
+              "type": "Rapid/Scalars/Integer",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSZones/UpdateTtlEndpoint/DnsZoneField",
+            "name": "dns_zone",
+            "description": "The DNS zone with the new TTL value",
+            "type": "CoreAPI/Objects/DNSZone",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Errors/PermissionDenied"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/UpdateTtlEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_zone",
+            "description": "The DNS zone to update the TTL for",
+            "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "ttl",
+            "description": "The new TTL value for the DNS zone",
+            "type": "Rapid/Scalars/Integer",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/DestroyEndpoint",
+        "name": "Destroy DNS Zone",
+        "description": "Remove a DNS zone from the Katapult config",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSZones/DestroyEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_zone",
+              "description": "The DNS zone to destroy",
+              "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSZones/DestroyEndpoint/DnsZoneField",
+            "name": "dns_zone",
+            "description": "The DNS zone that has been destroyed",
+            "type": "CoreAPI/Objects/DNSZone",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Errors/PermissionDenied"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSZones/DestroyEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_zone",
+            "description": "The DNS zone to destroy",
+            "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "controller",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords",
+        "name": "DNS Records",
+        "description": null,
+        "authenticator": null,
+        "endpoints": [
+          {
+            "name": "list",
+            "endpoint": "CoreAPI/Controllers/DNSRecords/ListEndpoint"
+          },
+          {
+            "name": "info",
+            "endpoint": "CoreAPI/Controllers/DNSRecords/InfoEndpoint"
+          },
+          {
+            "name": "create",
+            "endpoint": "CoreAPI/Controllers/DNSRecords/CreateEndpoint"
+          },
+          {
+            "name": "update",
+            "endpoint": "CoreAPI/Controllers/DNSRecords/UpdateEndpoint"
+          },
+          {
+            "name": "destroy",
+            "endpoint": "CoreAPI/Controllers/DNSRecords/DestroyEndpoint"
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords/ListEndpoint",
+        "name": "List DNS records",
+        "description": "Provides a full list of all DNS records for a specific zone",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSRecords/ListEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_zone",
+              "description": "The DNS zone to find all DNS records for",
+              "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "1"
+            },
+            {
+              "name": "per_page",
+              "description": null,
+              "type": "Rapid/Scalars/Integer",
+              "required": false,
+              "array": false,
+              "default": "20"
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSRecords/ListEndpoint/PaginationField",
+            "name": "pagination",
+            "description": null,
+            "type": "Rapid/PaginationObject",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Controllers/DNSRecords/ListEndpoint/DnsRecordsField",
+            "name": "dns_records",
+            "description": "The DNS records that belong to this DNS zone",
+            "type": "CoreAPI/Objects/DNSRecord",
+            "null": false,
+            "array": true,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords/ListEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_zone",
+            "description": "The DNS zone to find all DNS records for",
+            "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "1"
+          },
+          {
+            "name": "per_page",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": "20"
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecord",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecord/IdField",
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecord/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecord/TtlField",
+            "name": "ttl",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecord/RecordTypeField",
+            "name": "record_type",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecord/PropertiesField",
+            "name": "properties",
+            "description": null,
+            "type": "CoreAPI/Objects/DNSRecordProperties",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecord/VirtualMachineField",
+            "name": "virtual_machine",
+            "description": null,
+            "type": "CoreAPI/Objects/VirtualMachine",
+            "null": true,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "polymorph",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordProperties",
+        "name": null,
+        "description": null,
+        "options": [
+          {
+            "name": "A",
+            "type": "CoreAPI/Objects/DNSRecordTypes/A"
+          },
+          {
+            "name": "AAAA",
+            "type": "CoreAPI/Objects/DNSRecordTypes/AAAA"
+          },
+          {
+            "name": "CAA",
+            "type": "CoreAPI/Objects/DNSRecordTypes/CAA"
+          },
+          {
+            "name": "CNAME",
+            "type": "CoreAPI/Objects/DNSRecordTypes/CNAME"
+          },
+          {
+            "name": "MX",
+            "type": "CoreAPI/Objects/DNSRecordTypes/MX"
+          },
+          {
+            "name": "NS",
+            "type": "CoreAPI/Objects/DNSRecordTypes/NS"
+          },
+          {
+            "name": "SRV",
+            "type": "CoreAPI/Objects/DNSRecordTypes/SRV"
+          },
+          {
+            "name": "SSHFP",
+            "type": "CoreAPI/Objects/DNSRecordTypes/SSHFP"
+          },
+          {
+            "name": "TXT",
+            "type": "CoreAPI/Objects/DNSRecordTypes/TXT"
+          },
+          {
+            "name": "VirtualMachine",
+            "type": "CoreAPI/Objects/DNSRecordTypes/VirtualMachine"
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/A",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/A/IpField",
+            "name": "ip",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/AAAA",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/AAAA/IpField",
+            "name": "ip",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/CAA",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/CAA/FlagsField",
+            "name": "flags",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/CAA/PropertyTypeField",
+            "name": "property_type",
+            "description": null,
+            "type": "CoreAPI/Objects/DNSRecordTypes/PropertyTypeEnum",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/CAA/PropertyValueField",
+            "name": "property_value",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "enum",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/PropertyTypeEnum",
+        "name": null,
+        "description": null,
+        "values": [
+          {
+            "name": "issue",
+            "description": null
+          },
+          {
+            "name": "issuewild",
+            "description": null
+          },
+          {
+            "name": "iodef",
+            "description": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/CNAME",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/CNAME/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/MX",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/MX/HostField",
+            "name": "host",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/MX/PriorityField",
+            "name": "priority",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/NS",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/NS/NameField",
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/SRV",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/SRV/PriorityField",
+            "name": "priority",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/SRV/WeightField",
+            "name": "weight",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/SRV/PortField",
+            "name": "port",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/SRV/TargetField",
+            "name": "target",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/SSHFP",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/SSHFP/AlgorithmField",
+            "name": "algorithm",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/SSHFP/FingerprintTypeField",
+            "name": "fingerprint_type",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          },
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/SSHFP/FingerprintField",
+            "name": "fingerprint",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/TXT",
+        "name": null,
+        "description": null,
+        "fields": [
+          {
+            "id": "CoreAPI/Objects/DNSRecordTypes/TXT/DataField",
+            "name": "data",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "object",
+      "value": {
+        "id": "CoreAPI/Objects/DNSRecordTypes/VirtualMachine",
+        "name": null,
+        "description": null,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords/InfoEndpoint",
+        "name": "Get DNS record",
+        "description": "Return information about a DNS record",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSRecords/InfoEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_record",
+              "description": "The DNS record to return information for",
+              "type": "CoreAPI/ArgumentSets/DNSRecordLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSRecords/InfoEndpoint/DnsRecordField",
+            "name": "dns_record",
+            "description": "The DNS record details",
+            "type": "CoreAPI/Objects/DNSRecord",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": []
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords/InfoEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_record",
+            "description": "The DNS record to return information for",
+            "type": "CoreAPI/ArgumentSets/DNSRecordLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "lookup_argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DNSRecordLookup",
+        "name": "DNS Record Lookup",
+        "description": "Provides for DNS records to be looked up",
+        "arguments": [
+          {
+            "name": "id",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/ArgumentSets/DNSRecordLookup/DNSRecordNotFound"
+        ]
+      }
+    },
+    {
+      "type": "error",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DNSRecordLookup/DNSRecordNotFound",
+        "name": null,
+        "description": "No DNS record was found matching any of the criteria provided in the arguments",
+        "code": "dns_record_not_found",
+        "http_status": 404,
+        "fields": []
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords/CreateEndpoint",
+        "name": "Create DNS record",
+        "description": "Create a DNS record with the provided details",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSRecords/CreateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_zone",
+              "description": "The DNS zone that the new record will belong to",
+              "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "details",
+              "description": "The details for the new DNS record",
+              "type": "CoreAPI/ArgumentSets/DNSRecordArguments",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSRecords/CreateEndpoint/DnsRecordField",
+            "name": "dns_record",
+            "description": "The new DNS record that has been created",
+            "type": "CoreAPI/Objects/DNSRecord",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Errors/PermissionDenied"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords/CreateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_zone",
+            "description": "The DNS zone that the new record will belong to",
+            "type": "CoreAPI/ArgumentSets/DNSZoneLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "details",
+            "description": "The details for the new DNS record",
+            "type": "CoreAPI/ArgumentSets/DNSRecordArguments",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DNSRecordArguments",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "ttl",
+            "description": null,
+            "type": "Rapid/Scalars/Integer",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "record_type",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "virtual_machine",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/VirtualMachineLookup",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "properties",
+            "description": null,
+            "type": "CoreAPI/ArgumentSets/DNSRecordPropertiesArguments",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/ArgumentSets/DNSRecordPropertiesArguments",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "name",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "ip",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "flags",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "property_type",
+            "description": null,
+            "type": "CoreAPI/Objects/DNSRecordTypes/PropertyTypeEnum",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "property_value",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "host",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "priority",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "weight",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "port",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "target",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "algorithm",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "fingerprint_type",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "fingerprint",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "data",
+            "description": null,
+            "type": "Rapid/Scalars/String",
+            "required": false,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords/UpdateEndpoint",
+        "name": "Update DNS record",
+        "description": "Update a DNS record with new information",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSRecords/UpdateEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_record",
+              "description": "The DNS record that should be updated",
+              "type": "CoreAPI/ArgumentSets/DNSRecordLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            },
+            {
+              "name": "details",
+              "description": "The new details for the DNS record",
+              "type": "CoreAPI/ArgumentSets/DNSRecordArguments",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSRecords/UpdateEndpoint/DnsRecordField",
+            "name": "dns_record",
+            "description": "The updated DNS record",
+            "type": "CoreAPI/Objects/DNSRecord",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Errors/PermissionDenied"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords/UpdateEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_record",
+            "description": "The DNS record that should be updated",
+            "type": "CoreAPI/ArgumentSets/DNSRecordLookup",
+            "required": true,
+            "array": false,
+            "default": null
+          },
+          {
+            "name": "details",
+            "description": "The new details for the DNS record",
+            "type": "CoreAPI/ArgumentSets/DNSRecordArguments",
+            "required": true,
+            "array": false,
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "type": "endpoint",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords/DestroyEndpoint",
+        "name": "Destroy DNS record",
+        "description": "Remove a DNS record from the Katapult config",
+        "http_status": 200,
+        "authenticator": null,
+        "argument_set": {
+          "id": "CoreAPI/Controllers/DNSRecords/DestroyEndpoint/BaseArgumentSet",
+          "name": null,
+          "description": null,
+          "arguments": [
+            {
+              "name": "dns_record",
+              "description": "The DNS record to destroy",
+              "type": "CoreAPI/ArgumentSets/DNSRecordLookup",
+              "required": true,
+              "array": false,
+              "default": null
+            }
+          ]
+        },
+        "fields": [
+          {
+            "id": "CoreAPI/Controllers/DNSRecords/DestroyEndpoint/DnsRecordField",
+            "name": "dns_record",
+            "description": "The DNS record that has been destroyed",
+            "type": "CoreAPI/Objects/DNSRecord",
+            "null": false,
+            "array": false,
+            "spec": {
+              "all": true,
+              "spec": null
+            }
+          }
+        ],
+        "potential_errors": [
+          "CoreAPI/Errors/ValidationError",
+          "CoreAPI/Errors/PermissionDenied"
+        ]
+      }
+    },
+    {
+      "type": "argument_set",
+      "value": {
+        "id": "CoreAPI/Controllers/DNSRecords/DestroyEndpoint/BaseArgumentSet",
+        "name": null,
+        "description": null,
+        "arguments": [
+          {
+            "name": "dns_record",
+            "description": "The DNS record to destroy",
+            "type": "CoreAPI/ArgumentSets/DNSRecordLookup",
             "required": true,
             "array": false,
             "default": null

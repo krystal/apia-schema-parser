@@ -3,16 +3,23 @@ PATH
   specs:
     rapid-schema-parser (0.0.0.dev)
       json
+      rapid
 
 GEM
   remote: https://rubygems.org/
+  remote: https://rubygems.pkg.github.com/krystal/
   specs:
     json (2.3.0)
+    rack (2.2.2)
+    rapid (0.1.4)
+      json
+      rack
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  rapid!
   rapid-schema-parser!
 
 BUNDLED WITH
