@@ -15,7 +15,7 @@ module RapidSchemaParser
     end
 
     def name
-      @raw['name']
+      @raw['name'] || id.split('/').last
     end
 
     def description
