@@ -29,6 +29,10 @@ module RapidSchemaParser
       @raw['required'] == true
     end
 
+    def array?
+      @raw['array'] == true
+    end
+
     def default
       @raw['default']
     end
