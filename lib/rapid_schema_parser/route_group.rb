@@ -24,24 +24,26 @@ module RapidSchemaParser
       @route_set.routes_by_group[id]
     end
 
+    def group_path
+      @group_path ||= begin
+        parts = @raw['id'].split('.')
+        last_group = @route_set
+        groups = []
+        parts.size.times do |i|
+          inner_parts = parts[0, i + 1]
+          id = inner_parts.join('.')
+          group = last_group.groups[id]
+          groups << group
+          last_group = group
+        end
+        groups
+      end
+    end
+
     def group
       return @group if instance_variable_defined?('@group')
 
-      @group = begin
-        parts = @raw['id'].split('.')
-        parts.pop
-        source = @route_set.groups
-        parts.size.times do |i|
-          part = parts[0, i + 1].join('.')
-
-          source = source[part]
-          return nil if source.nil?
-          return source if i == parts.size - 1
-
-          source = source.groups
-        end
-        nil
-      end
+      @group = group_path[group_path.size - 2]
     end
 
     def groups
