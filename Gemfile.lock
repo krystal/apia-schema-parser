@@ -9,9 +9,9 @@ GEM
   remote: https://rubygems.org/
   remote: https://rubygems.pkg.github.com/krystal/
   specs:
-    json (2.3.0)
-    rack (2.2.2)
-    rapid (0.1.4)
+    json (2.3.1)
+    rack (2.2.3)
+    rapid (1.0.1)
       json
       rack
 
