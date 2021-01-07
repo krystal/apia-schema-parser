@@ -4,5 +4,10 @@
 require 'bundler/setup'
 require 'rapid_schema_parser'
 
+json = File.read(File.expand_path('../example.json', __dir__))
+# rubocop:disable Style/GlobalVars
+$schema = RapidSchemaParser::Schema.new(JSON.parse(json))
+# rubocop:enable Style/GlobalVars
+
 require 'irb'
 IRB.start(__FILE__)
