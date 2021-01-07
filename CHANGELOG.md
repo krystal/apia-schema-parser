@@ -2,6 +2,16 @@
 
 This file contains all the latest changes and updates to the Rapid Schema Parser.
 
+## 0.1.9
+
+### Features
+
+- support for scopes ([d4e49e](https://github.com/krystal/rapid-schema-parser/commit/d4e49ef6b176a5a7b2490978dd3f85eb3ca0209c))
+
+### Bug Fixes
+
+- load $schema when loading the console ([c176bd](https://github.com/krystal/rapid-schema-parser/commit/c176bde5b40f3e21b886438191f9f0bc8f2a3347))
+
 ## 0.1.8
 
 ### Bug Fixes
