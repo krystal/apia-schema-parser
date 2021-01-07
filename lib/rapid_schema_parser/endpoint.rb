@@ -33,6 +33,10 @@ module RapidSchemaParser
       @raw['http_method']
     end
 
+    def scopes
+      @raw['scopes']
+    end
+
     def all_potential_errors
       (potential_errors + argument_set.all_potential_errors).uniq
     end
