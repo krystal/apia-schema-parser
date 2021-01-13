@@ -2,6 +2,12 @@
 
 This file contains all the latest changes and updates to the Rapid Schema Parser.
 
+## 0.1.10
+
+### Bug Fixes
+
+- fixes issue when routes don't have a group ([a0abf6](https://github.com/krystal/rapid-schema-parser/commit/a0abf60dbf23e43ba982d77eba0d8414d63f2ef6))
+
 ## 0.1.9
 
 ### Features
