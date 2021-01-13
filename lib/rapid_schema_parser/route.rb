@@ -21,6 +21,8 @@ module RapidSchemaParser
     end
 
     def group
+      return nil if @raw['group'].nil?
+
       parts = @raw['group'].split('.')
       source = @route_set.groups
       parts.size.times do |i|
