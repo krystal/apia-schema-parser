@@ -2,6 +2,12 @@
 
 This file contains all the latest changes and updates to the Rapid Schema Parser.
 
+## 0.1.11
+
+### Bug Fixes
+
+- upgrade rapid ([52e699](https://github.com/krystal/rapid-schema-parser/commit/52e699e2dbd670f797fa4e1bd17f112915a9457d))
+
 ## 0.1.10
 
 ### Bug Fixes
