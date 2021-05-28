@@ -2,6 +2,8 @@
 
 This file contains all the latest changes and updates to the Rapid Schema Parser.
 
+## 0.1.12
+
 ## 0.1.11
 
 ### Bug Fixes
