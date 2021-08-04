@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
   s.authors       = ['Adam Cooke']
   s.email         = ['adam@k.io']
+  s.licenses      = ['MIT']
   s.add_runtime_dependency 'apia', '>= 3.0', '< 4.0'
   s.add_runtime_dependency 'json'
 end
