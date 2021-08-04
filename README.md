@@ -1,5 +1,7 @@
 ![Screenshot](https://share.adam.ac/21/Artboard-Copy-CdqXC7jrsr6Lk61YdB.png)
 
+[![Gem Version](https://badge.fury.io/rb/apia-schema-parser.svg)](https://badge.fury.io/rb/apia-schema-parser)
+
 This library provides a little Ruby wrapper on top of a Apia Schema JSON file. It allows you to browse the specification for a Apia API through Ruby.
 
 ## Installation
@@ -7,9 +9,7 @@ This library provides a little Ruby wrapper on top of a Apia Schema JSON file. I
 Just in the gem...
 
 ```ruby
-source "https://rubygems.pkg.github.com/krystal" do
-  gem 'apia-schema-parser', '~> 1.0'
-end
+gem 'apia-schema-parser', '~> 1.0'
 ```
 
 ## Get started
