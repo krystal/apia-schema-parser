@@ -2,6 +2,8 @@
 
 This file contains all the latest changes and updates to the Apia Schema Parser.
 
+## 1.0.0
+
 ## 0.1.12
 
 ## 0.1.11
