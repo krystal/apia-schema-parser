@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'rapid_schema_parser/error'
+require 'apia_schema_parser/error'
 
-module RapidSchemaParser
+module ApiaSchemaParser
   module HasPotentialErrors
 
     def potential_errors

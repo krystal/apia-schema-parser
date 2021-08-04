@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require 'rapid_schema_parser/simple_object'
-require 'rapid_schema_parser/authenticator'
-require 'rapid_schema_parser/controller'
-require 'rapid_schema_parser/route_set'
-require 'rapid_schema_parser/scope'
+require 'apia_schema_parser/simple_object'
+require 'apia_schema_parser/authenticator'
+require 'apia_schema_parser/controller'
+require 'apia_schema_parser/route_set'
+require 'apia_schema_parser/scope'
 
-module RapidSchemaParser
+module ApiaSchemaParser
   class API < SimpleObject
 
     def authenticator

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module RapidSchemaParser
+module ApiaSchemaParser
   class RouteGroup
 
     def initialize(set, raw)

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'rapid_schema_parser/simple_object'
+require 'apia_schema_parser/simple_object'
 
-module RapidSchemaParser
+module ApiaSchemaParser
   class Scalar < SimpleObject
 
   end

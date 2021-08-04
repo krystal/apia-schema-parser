@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rapid_schema_parser/simple_object'
-require 'rapid_schema_parser/polymorph_option'
+require 'apia_schema_parser/simple_object'
+require 'apia_schema_parser/polymorph_option'
 
-module RapidSchemaParser
+module ApiaSchemaParser
   class Polymorph < SimpleObject
 
     def options

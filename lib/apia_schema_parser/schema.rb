@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
-require 'rapid_schema_parser/api'
-require 'rapid_schema_parser/controller'
-require 'rapid_schema_parser/endpoint'
-require 'rapid_schema_parser/argument_set'
-require 'rapid_schema_parser/authenticator'
-require 'rapid_schema_parser/error'
-require 'rapid_schema_parser/object'
-require 'rapid_schema_parser/enum'
-require 'rapid_schema_parser/scalar'
-require 'rapid_schema_parser/polymorph'
-require 'rapid_schema_parser/lookup_argument_set'
+require 'apia_schema_parser/api'
+require 'apia_schema_parser/controller'
+require 'apia_schema_parser/endpoint'
+require 'apia_schema_parser/argument_set'
+require 'apia_schema_parser/authenticator'
+require 'apia_schema_parser/error'
+require 'apia_schema_parser/object'
+require 'apia_schema_parser/enum'
+require 'apia_schema_parser/scalar'
+require 'apia_schema_parser/polymorph'
+require 'apia_schema_parser/lookup_argument_set'
 
-module RapidSchemaParser
+module ApiaSchemaParser
   class Schema
 
     OBJECT_MAP = {
@@ -34,7 +34,7 @@ module RapidSchemaParser
     end
 
     def inspect
-      "#<RapidSchemaParser::Schema[#{@raw['api']}] #{@raw['objects'].size} objects>"
+      "#<ApiaSchemaParser::Schema[#{@raw['api']}] #{@raw['objects'].size} objects>"
     end
 
     def host

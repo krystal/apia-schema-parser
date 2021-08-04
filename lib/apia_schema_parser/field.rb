@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rapid/field_spec'
-require 'rapid_schema_parser/simple_object'
+require 'apia/field_spec'
+require 'apia_schema_parser/simple_object'
 
-module RapidSchemaParser
+module ApiaSchemaParser
   class Field < SimpleObject
 
     def type
@@ -20,7 +20,7 @@ module RapidSchemaParser
 
     def spec
       return :all if @raw['spec']['all'] == true
-      return Rapid::FieldSpec.parse(@raw['spec']['spec']) if @raw['spec']['spec']
+      return Apia::FieldSpec.parse(@raw['spec']['spec']) if @raw['spec']['spec']
 
       nil
     end

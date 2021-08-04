@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require 'rapid_schema_parser/route_set'
-require 'rapid_schema_parser/route_group'
-require 'rapid_schema_parser/route'
+require 'apia_schema_parser/route_set'
+require 'apia_schema_parser/route_group'
+require 'apia_schema_parser/route'
 
-module RapidSchemaParser
+module ApiaSchemaParser
   class RouteSet < SimpleObject
 
     def routes
       @routes ||= @raw['routes'].map do |route_hash|
-        next if route_hash['controller'] =~ /\ARapid\//
+        next if route_hash['controller'] =~ /\AApia\//
 
         Route.new(self, route_hash)
       end.compact

@@ -1,26 +1,24 @@
 PATH
   remote: .
   specs:
-    rapid-schema-parser (0.0.0.dev)
+    apia-schema-parser (0.0.0.dev)
+      apia (>= 3.0, < 4.0)
       json
-      rapid (>= 1.2.2, < 2.0)
 
 GEM
   remote: https://rubygems.org/
-  remote: https://rubygems.pkg.github.com/krystal/
   specs:
-    json (2.5.1)
-    rack (2.2.3)
-    rapid (1.2.2)
+    apia (3.0.0)
       json
       rack
+    json (2.5.1)
+    rack (2.2.3)
 
 PLATFORMS
-  ruby
+  x86_64-linux
 
 DEPENDENCIES
-  rapid!
-  rapid-schema-parser!
+  apia-schema-parser!
 
 BUNDLED WITH
-   2.1.4
+   2.2.24

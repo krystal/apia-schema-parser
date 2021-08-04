@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rapid_schema_parser/simple_object'
-require 'rapid_schema_parser/argument'
+require 'apia_schema_parser/simple_object'
+require 'apia_schema_parser/argument'
 
-module RapidSchemaParser
+module ApiaSchemaParser
   class ArgumentSet < SimpleObject
 
     def arguments
@@ -14,8 +14,8 @@ module RapidSchemaParser
     end
 
     def all_potential_errors
-      errors = self.respond_to?(:potential_errors) ? self.potential_errors : []
-      self.arguments.values.each do |arg|
+      errors = respond_to?(:potential_errors) ? potential_errors : []
+      arguments.values.each do |arg|
         next unless arg.type.is_a?(ArgumentSet)
 
         errors |= arg.type.all_potential_errors

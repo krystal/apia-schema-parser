@@ -1,5 +1,6 @@
-module RapidSchemaParser
+module ApiaSchemaParser
   class PolymorphOption
+
     def initialize(schema, raw)
       @schema = schema
       @raw = raw
@@ -12,5 +13,6 @@ module RapidSchemaParser
     def type
       @schema.objects[@raw['type']]
     end
+
   end
 end

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rapid_schema_parser/simple_object'
-require 'rapid_schema_parser/enum_value'
+require 'apia_schema_parser/simple_object'
+require 'apia_schema_parser/enum_value'
 
-module RapidSchemaParser
+module ApiaSchemaParser
   class Enum < SimpleObject
 
     def values

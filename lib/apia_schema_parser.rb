@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require 'json'
-require 'rapid_schema_parser/schema'
+require 'apia_schema_parser/schema'
 
-module RapidSchemaParser
+module ApiaSchemaParser
 
   def self.load_from_file(path)
     contents = File.read(path)

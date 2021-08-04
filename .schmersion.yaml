@@ -15,7 +15,7 @@ exports:
     formatter: markdown
     options:
       title: CHANGELOG
-      description: This file contains all the latest changes and updates to the Rapid Schema Parser.
+      description: This file contains all the latest changes and updates to the Apia Schema Parser.
       sections:
         - title: Features
           types: [feat]

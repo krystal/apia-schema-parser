@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'rapid_schema_parser/field'
+require 'apia_schema_parser/field'
 
-module RapidSchemaParser
+module ApiaSchemaParser
   module HasFields
 
     def fields
