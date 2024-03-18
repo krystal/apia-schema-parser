@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name          = 'apia-schema-parser'
   s.description   = 'A little library for reading Apia Schema files.'
   s.summary       = 'This gem provides tools for reading Apia schema definitions.'
-  s.homepage      = 'https://github.com/krystal/apia-schema-parser'
+  s.homepage      = 'https://github.com/apiaframework/schema-parser'
   s.version       = ApiaSchemaParser::VERSION
   s.files         = Dir.glob('VERSION') + Dir.glob('{lib}/**/*')
   s.require_paths = ['lib']
